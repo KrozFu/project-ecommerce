@@ -1,5 +1,9 @@
 version: "3.9"
 
+volumes:
+  pgadmin_data:
+
+
 services:
   frontend:
     build:
@@ -47,11 +51,15 @@ services:
       - "5050:80"
     env_file:
       - ./.env.docker
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@example.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
     volumes:
-      - "~/apps/pgadmin:/var/lib/pgadmin"
+      - pgadmin_data:/var/lib/pgadmin
+    user: "${UID:-5050}:${GID:-5050}"
 
   watchtower:
-    image: containrrr/watchtower
+    image: containrrr/watchtower:latest
     container_name: watchtower
     command: --interval 30 --label-enable --cleanup
     volumes:

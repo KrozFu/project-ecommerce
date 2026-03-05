@@ -62,3 +62,19 @@ docker-compose logs -f
 3. ✅ Created environment file templates
 4. ✅ Fixed nginx upstream configuration
 5. ✅ Fixed backend Dockerfile EXPOSE instruction
+6. ✅ Fixed pgAdmin permission issues with sessions directory
+7. ✅ Added proper volume management for pgAdmin
+
+## pgAdmin Access
+- **URL**: http://localhost:5050
+- **Email**: admin@example.com
+- **Password**: admin
+
+## Troubleshooting pgAdmin
+If pgAdmin still has permission issues, run:
+```bash
+# Set proper permissions for pgAdmin volume
+docker-compose down
+docker volume rm project-ecommerce_pgadmin_data
+docker-compose up pgadmin
+```
