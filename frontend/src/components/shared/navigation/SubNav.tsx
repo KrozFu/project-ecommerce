@@ -5,13 +5,14 @@ export default function SubNav() {
   return (
     <nav id="sub-nav">
       <ul>
-        <li>Register</li>
+        <li><a href="/register" style={{ textDecoration: "none", color: "inherit" }}>Register</a></li>
         <li>Free Shipping on Orders Over US$ 100</li>
         <div className="flex gap-4">
-          <li>Login</li>
-          <Cart/>
+          <li><a href="/login" style={{ textDecoration: "none", color: "inherit" }}>Login</a></li>
+          <Cart />
         </div>
       </ul>
     </nav>
   );
 }
+

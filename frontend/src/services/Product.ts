@@ -28,7 +28,7 @@ export const getProductList = async ({
 }: IGetProductList) => {
   try {
     const response = await fetch(
-      `${BACKEND_URL}/products?page${page}&limit=${limit}`
+      `${BACKEND_URL}/products?page=${page}&limit=${limit}`
     ).then((res) => {
       if (res.ok) {
         return res.json();

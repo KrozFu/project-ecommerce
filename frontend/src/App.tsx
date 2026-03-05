@@ -6,6 +6,7 @@ import Navigation from "./components/shared/navigation/Navigation";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //Page Imports
+import Home from "./pages/Home";
 import Products from "./pages/product/Products";
 import ProductPage from "./pages/product/ProductPage";
 import Login from "./pages/auth/Login";
@@ -14,18 +15,18 @@ import { ICartContext, ICartItem } from './types/CartTypes';
 
 export const CartContext = createContext<ICartContext>({
   cart: [],
-  setCart: () => {}  // Placeholder function
+  setCart: () => { }  // Placeholder function
 });
 
 function App() {
   const [cart, setCart] = useState<ICartItem[]>([]);
   return (
     <div className="App">
-      <CartContext.Provider value={{cart, setCart}}>
+      <CartContext.Provider value={{ cart, setCart }}>
         <Navigation />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<></>}></Route>
+            <Route path="/" element={<Home />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/products" element={<Products />}></Route>

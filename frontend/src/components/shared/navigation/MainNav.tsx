@@ -4,32 +4,42 @@ export default function MainNav() {
   const navLinks = [
     {
       label: "New Arrivals",
-      href: "/new-arrivals",
+      href: "/products",
     },
     {
       label: "Tops",
-      href: "/tops",
+      href: "/products",
     },
     {
       label: "Bottoms",
-      href: "/bottoms",
+      href: "/products",
     },
     {
       label: "Shoes",
-      href: "/shoes",
+      href: "/products",
     },
     {
       label: "Sale",
-      href: "/sale",
+      href: "/products",
     },
   ];
   return (
     <nav id="main-nav">
       <ul>
+        <li key="home">
+          <a href="/" style={{ textDecoration: "none", color: "inherit", fontWeight: 700 }}>
+            Store
+          </a>
+        </li>
         {navLinks.map((link) => (
-          <li key={link.label}>{link.label}</li>
+          <li key={link.label}>
+            <a href={link.href} style={{ textDecoration: "none", color: "inherit" }}>
+              {link.label}
+            </a>
+          </li>
         ))}
       </ul>
     </nav>
   );
 }
+
